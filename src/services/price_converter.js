@@ -1,4 +1,4 @@
-import { appendToFile, loopFixedTimes, readFromFile } from '../utils/common.js';
+import { appendToFile, readFromFile } from '../utils/common.js';
 
 const convert = (priceWithDots) => {
   const result = [...priceWithDots].reduce((res, c) => {
@@ -8,7 +8,6 @@ const convert = (priceWithDots) => {
 };
 
 const action = () => {
-  const n = process.env.NUM_PRODUCTS || 0;
   const data = readFromFile();
   const sourcePrices = data.split('\n');
   const targetPrices = sourcePrices.map(convert);
